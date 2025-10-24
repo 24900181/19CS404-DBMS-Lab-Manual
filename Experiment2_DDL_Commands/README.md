@@ -105,15 +105,27 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Create a table named Employees with the following columns:
+
+EmployeeID as INTEGER
+FirstName as TEXT
+LastName as TEXT
+HireDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Employees
+(
+    EmployeeID INTEGER ,
+    FirstName TEXT ,
+    LastName TEXT,
+    HireDate DATE
+);
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1426" height="368" alt="Screenshot 2025-10-24 224420" src="https://github.com/user-attachments/assets/21d50253-d520-48bf-a695-bec8ff4b26c5" />
 
 **Question 2**
 ---
