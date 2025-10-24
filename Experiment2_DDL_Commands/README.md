@@ -105,123 +105,209 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named Employees with the following columns:
 
+EmployeeID as INTEGER
+FirstName as TEXT
+LastName as TEXT
+HireDate as DATE
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Employees
+(
+    EmployeeID INTEGER ,
+    FirstName TEXT ,
+    LastName TEXT,
+    HireDate DATE
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1426" height="368" alt="image" src="https://github.com/user-attachments/assets/0250c185-f119-4851-86ea-f4c745f85506" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- 
+Create a table named Bonuses with the following constraints:
+BonusID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+BonusAmount as REAL should be greater than 0.
+BonusDate as DATE.
+Reason as TEXT should not be NULL.
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Bonuses
+(
+    BonusID  INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    BonusAmount REAL CHECK (BonusAmount>0),
+    BonusDate DATE,
+    Reason TEXT NOT NULL,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1379" height="298" alt="image" src="https://github.com/user-attachments/assets/364386b9-bfb6-462d-bda5-fe242967488c" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Insert all employees from Former_employees into Employee
+
+Table attributes are EmployeeID, Name, Department, Salary
 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Employee(EmployeeID, Name, Department, Salary)
+SELECT EmployeeID, Name, Department, Salary FROM  Former_employees;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1404" height="302" alt="image" src="https://github.com/user-attachments/assets/e96d4579-0359-4964-a91e-3929c507dab3" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
 
 ```sql
--- Paste your SQL code below for Question 4
+CREATE TABLE Department
+(
+    DepartmentID INTEGER PRIMARY KEY,
+    DepartmentName TEXT UNIQUE NOT NULL,
+    Location TEXT
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1309" height="302" alt="image" src="https://github.com/user-attachments/assets/390fb7ed-f4fd-4cb6-8b80-7438d78f9b8f" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+--Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Employees
+(
+   EmployeeID INTEGER PRIMARY KEY,
+   FirstName  NOT NULL,
+   LastName NOT NULL,
+   Email UNIQUE,
+   Salary CHECK(Salary>0),
+   DepartmentID INTEGER,
+   FOREIGN KEY(DepartmentID) REFERENCES Departments(DepartmentID)
+   
+);
 ```
 
 **Output:**
+<img width="1327" height="395" alt="image" src="https://github.com/user-attachments/assets/ae85acf5-597d-414c-a558-79391f54a530" />
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+--Write an SQL query to add a new column email of type TEXT to the Student_details table, and ensure that this column cannot contain NULL values and make default value as 'Invalid'
 
 ```sql
--- Paste your SQL code below for Question 6
+ALTER TABLE  Student_details ADD COLUMN email TEXT NOT NULL DEFAULT 'Invalid';
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1329" height="283" alt="image" src="https://github.com/user-attachments/assets/78090471-bf69-40eb-8bda-4274c4f42dfc" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+--Insert the below data into the Books table, allowing the Publisher and Year columns to take their default values.
+
+ISBN             Title                 Author
+---------------  --------------------  ---------------
+978-6655443321   Big Data Analytics    Karen Adams
+
+Note: The Publisher and Year columns will use their default values.
+ 
 
 ```sql
--- Paste your SQL code below for Question 7
+INSERT INTO Books(ISBN ,Title ,Author) VALUES ('978-6655443321'  , 'Big Data Analytics' ,'Karen Adams');
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1284" height="299" alt="image" src="https://github.com/user-attachments/assets/8dd86e41-8930-48de-81fb-e36a9bf0c42c" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+--In the Employee table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+
+EmployeeID  Name          Position    Department  Salary
+----------  ------------  ----------  ----------  ----------
+5           George Clark  Consultant
+7           Noah Davis    Manager     HR          60000
+8           Ava Miller    Consultant  IT
 
 ```sql
--- Paste your SQL code below for Question 8
+Insert into Employee(EmployeeID , Name  , Position ,Department,Salary)
+Values('5 ','George Clark','Consultant',null,null);
+Insert into Employee(EmployeeID , Name  , Position ,Department,Salary)
+Values('7' ,'Noah Davis', 'Manager', 'HR'  ,'60000');
+Insert into Employee(EmployeeID , Name , Position ,Department,Salary)
+Values('8','Ava Miller','Consultant' , 'IT',null);
+
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1383" height="287" alt="image" src="https://github.com/user-attachments/assets/a5c9a90d-1f51-48bf-8239-8dc935341a0b" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write a SQL query to Add a new ParentsNumber column  as number and Adhar_Number as Number in the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 9
+ALTER TABLE Student_details ADD COLUMN  ParentsNumber number;
+ALTER TABLE Student_details ADD COLUMN  Adhar_Number number;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1362" height="374" alt="image" src="https://github.com/user-attachments/assets/38744ff5-5d3a-48fc-9f50-4d1ef62173b7" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 ```sql
--- Paste your SQL code below for Question 10
+create table jobs
+(
+   job_id integer primary key,
+   job_title varchar(50) default '',
+   min_salary int default 8000,
+   max_salary default null
+)
 ```
 
 **Output:**
+<img width="1480" height="254" alt="image" src="https://github.com/user-attachments/assets/2bac1c4d-dc5b-4cda-b20f-50a9a1a5b7c5" />
 
-![Output10](output.png)
 
 
 ## RESULT
