@@ -238,7 +238,7 @@ SQL statement to generate a report with customer name, city, order number, order
 <br>
 <img width="550" height="263" alt="image" src="https://github.com/user-attachments/assets/d4100e4e-8032-462a-8540-3f8941837eba" />
 
-```sql
+```sql 
 SELECT
     T1.cust_name,
     T1.city,
